@@ -7,12 +7,16 @@ const connectDB=require('./database/connection');
 
 app=express();
 
+// URI of Database AND PORT
 dotnev.config();
 
 const PORT = process.env.PORT || 5000
 
+// database connection 
 connectDB();
+
 app.use(cookieParser())
+
 app.use(cors({
     credentials:true,
     origin:['http://localhost:8080']
@@ -20,6 +24,7 @@ app.use(cors({
 
 app.use(express.json())
 
+// route
 app.use('/api', route);
 
 app.listen(PORT);
