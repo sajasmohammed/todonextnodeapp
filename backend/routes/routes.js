@@ -19,27 +19,31 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => {
 
-
-    const user = await User.findOne({ email: req.body.email })
-    if (!user) {
-        return res.status(404).send({
-            message: "user not found"
-        })
-    }
-    if (!await bcrypt.compare(req.body.password, user.password)) {
-        return res.status(404).send({
-            message: "invalid credentials"
+    try {
+        const user = await User.findOne({ email: req.body.email })
+        if (!user) {
+            return res.status(404).send({
+                message: "user not found"
+            })
+        }
+        if (!await bcrypt.compare(req.body.password, user.password)) {
+            return res.status(404).send({
+                message: "invalid credentials"
+            });
+        }
+        const token = jwt.sign({ _id: user._id }, "secret");
+        res.cookie('jwt', token, {
+            httpOnly: true,
+            maxAge: 24 * 60 * 60 * 1000 // 1 day
         });
+        res.send({
+            message: "success"
+        })
+        res.send(token);
+    } catch (e) {
+    
     }
-    const token = jwt.sign({ _id: user._id }, "secret");
-    res.cookie('jwt', token, {
-        httpOnly: true,
-        maxAge: 24 * 60 * 60 * 1000 // 1 day
-    });
-    res.send({
-        message: "success"
-    })
-    res.send(token);
+
 });
 
 router.get('/user', async (req, res) => {
@@ -55,9 +59,7 @@ router.get('/user', async (req, res) => {
         const { password, ...data } = await user.toJSON();
         res.send(data);
     } catch (e) {
-        return res.status({
-            message: "unauthenticated"
-        });
+        
     }
 });
 
