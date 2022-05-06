@@ -1,0 +1,25 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sajasmohammed/todonextnodeapp.git"
+  },
+  "author": "sajas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sajasmohammed/todonextnodeapp/issues"
+  },
+  "homepage": "https://github.com/sajasmohammed/todonextnodeapp#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
