@@ -8,7 +8,11 @@ export default function Login() {
     const router = useRouter();
 
     const submit = async (e: SyntheticEvent) => {
+<<<<<<< HEAD
             e.preventDefault();
+=======
+        e.preventDefault();
+>>>>>>> 06e6acf47d6cf13fdd309e6341ae7199cd353c8b
 
             await fetch('http://127.0.0.1:3000/api/login', {
                 method: 'POST',
@@ -31,11 +35,19 @@ export default function Login() {
                 <input type="email" className="form-control" placeholder="Email" required
                     onChange={e => setEmail(e.target.value)}
                 />
+<<<<<<< HEAD
                 <br />
                 <input type="password" className="form-control" placeholder="Password" required
                     onChange={e => setPassword(e.target.value)}
                 />
                 <br />
+=======
+
+                <input type="password" className="form-control" placeholder="Password" required
+                    onChange={e => setPassword(e.target.value)}
+                />
+
+>>>>>>> 06e6acf47d6cf13fdd309e6341ae7199cd353c8b
                 <button className="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
             </form>
         </Layout>
