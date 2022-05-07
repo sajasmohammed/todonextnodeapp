@@ -1,7 +1,7 @@
 const express=require('express');
 const dotnev=require('dotenv');
 const routeAuth=require('./routes/auth_routes');
-// const routeTask=require('./routes/task_routes');
+const routeTask=require('./routes/task_routes');
 const cors=require('cors');
 const cookieParser=require('cookie-parser');
 const connectDB=require('./database/connection');
@@ -28,7 +28,7 @@ app.use(express.json())
 // auth route
 app.use('/api', routeAuth);
 // task route
-// app.use('/api', routeTask);
+app.use('/api', routeTask);
 
 
 app.listen(PORT);
