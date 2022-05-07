@@ -32,7 +32,6 @@ const Register = () => {
                 <input className="form-control" placeholder="Name" required
                        onChange={e => setName(e.target.value)}
                 />
-<<<<<<< HEAD
                 <br />
                 <input type="email" className="form-control" placeholder="Email" required
                        onChange={e => setEmail(e.target.value)}
@@ -42,17 +41,6 @@ const Register = () => {
                        onChange={e => setPassword(e.target.value)}
                 />
                 <br />
-=======
-
-                <input type="email" className="form-control" placeholder="Email" required
-                       onChange={e => setEmail(e.target.value)}
-                />
-
-                <input type="password" className="form-control" placeholder="Password" required
-                       onChange={e => setPassword(e.target.value)}
-                />
-
->>>>>>> 06e6acf47d6cf13fdd309e6341ae7199cd353c8b
                 <button className="w-100 btn btn-lg btn-primary" type="submit">Submit</button>
             </form>
         </Layout>
